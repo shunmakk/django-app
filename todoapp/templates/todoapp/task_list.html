@@ -1,0 +1,13 @@
+<h1>Todoリスト</h1>
+
+<table>
+  <tr>
+    <th>タスク</th>
+  </tr>
+  {% for task in tasks %}
+  <tr>
+    <td><a href="{% url 'task' task.id %}">確認</a></td>
+    <td>{{task.title}}</td>
+  </tr>
+  {% endfor %}
+</table>
