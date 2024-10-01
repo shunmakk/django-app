@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from todoapp.models import Task
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView,DeleteView
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -32,3 +32,9 @@ class TaskUpdate(UpdateView):
     # 全てのモデル
     fields = "__all__"
     success_url = reverse_lazy("tasks")
+class TaskDelete(DeleteView):
+    model = Task
+     # 全てのモデル
+    fields = "__all__"
+    success_url = reverse_lazy("tasks")
+    context_object_name = "task"
